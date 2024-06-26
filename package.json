@@ -1,0 +1,27 @@
+{
+  "name": "all-files",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "bunx --bun vite",
+    "build": "bunx --bun vite build",
+    "git-ls": "git ls-files --cached --others --exclude-standard '*ts' '*.tsx'",
+    "lint": "biome lint $(npm run -s git-ls)",
+    "lint:fix": "biome lint $(npm run -s git-ls) --write --unsafe",
+    "tidy": "biome format $(npm run -s git-ls) --write",
+    "preview": "bunx --bun vite preview"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.8.2",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "typescript": "^5.2.2",
+    "vite": "^5.3.1"
+  }
+}
