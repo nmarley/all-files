@@ -1,33 +1,33 @@
-import type React from "react";
-import { useState } from "react";
+import type React from 'react';
+import { useState } from 'react';
 // import { Table } from '@mantine/core';
-import FileRow from "./FileRow";
+import FileRow from './FileRow';
 
-import mockData from "../mockData";
+import mockData from '../mockData';
 
 export interface FileData {
-	id: number;
-	filename: string;
-	suppliers: string[];
-	providers: string[];
-	foundAt: Date;
+    id: number;
+    filename: string;
+    suppliers: string[];
+    providers: string[];
+    foundAt: Date;
 }
 
 interface Props {
-	// TODO: make this the full Supplier object from Core instead of breaking
-	// this out, this is just a quick mock placeholder
-	supplierIds: string[];
-	user: string;
+    // TODO: make this the full Supplier object from Core instead of breaking
+    // this out, this is just a quick mock placeholder
+    supplierIds: string[];
+    user: string;
 }
 
 const AllFilesView: React.FC<Props> = ({ supplierIds, user }) => {
-	// state thing for files
-	// const [files, setFiles] = useState<FileData[]>([]);
+    // state thing for files
+    // const [files, setFiles] = useState<FileData[]>([]);
 
-	// The the API here using the filters in the state
-	// const getFiles = async () => {
-	// };
-	// files = getFiles();
+    // The the API here using the filters in the state
+    // const getFiles = async () => {
+    // };
+    // files = getFiles();
 
     const { count, files } = mockData;
 
@@ -43,12 +43,15 @@ const AllFilesView: React.FC<Props> = ({ supplierIds, user }) => {
     //     }
     // });
 
-	return (
-		<>
+    return (
+        <>
             <div>
-            User: {user}<br />
-            SupplierIds: {supplierIds.join(", ")}<br />
-            Total files: {count}<br />
+                User: {user}
+                <br />
+                SupplierIds: {supplierIds.join(', ')}
+                <br />
+                Total files: {count}
+                <br />
             </div>
 
             <div className="filesTable">
@@ -56,8 +59,8 @@ const AllFilesView: React.FC<Props> = ({ supplierIds, user }) => {
                     <FileRow key={file.id} file={file} />
                 ))}
             </div>
-		</>
-	);
+        </>
+    );
 };
 
 export default AllFilesView;
