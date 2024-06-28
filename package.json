@@ -4,12 +4,12 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "bunx --bun vite",
-    "build": "bunx --bun vite build",
+    "dev": "bun --bun vite",
+    "build": "bun --bun vite build",
     "lint": "biome lint .",
     "lint:fix": "biome lint . --write --unsafe",
     "format": "biome format . --write",
-    "preview": "bunx --bun vite preview"
+    "preview": "bun --bun vite preview"
   },
   "dependencies": {
     "react": "^18.3.1",
