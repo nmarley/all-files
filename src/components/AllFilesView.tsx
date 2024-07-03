@@ -24,22 +24,9 @@ const AllFilesView: React.FC<Props> = ({ supplierIds, user }) => {
 
     const { count, files } = mockData;
 
-    // TODO: table or something here to display the files
-
-    // const fileDatas = mockData.files.map((file) => {
-    //     return FileData {
-    //         id: file.id,
-    //         filename: file.filename,
-    //         supplierIds: file.supplierIds,
-    //         providers: file.providers,
-    //         foundAt: file.foundAt,
-    //     }
-    // });
-
     return (
         <Container>
             <h3>
-            Files for {supplierIds.length === 0 ? 'all suppliers' : 'suppliers' + supplierIds.join(', ')}
             Total files: {count}
             </h3>
             <Table
