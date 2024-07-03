@@ -1,17 +1,10 @@
-import type React from 'react';
+import React from 'react';
 import { useState } from 'react';
-// import { Table } from '@mantine/core';
+import { Button, Container, Table, ScrollArea } from '@mantine/core';
+import { FileData } from '../types';
 import FileRow from './FileRow';
 
 import mockData from '../mockData';
-
-export interface FileData {
-    id: number;
-    filename: string;
-    suppliers: string[];
-    providers: string[];
-    foundAt: Date;
-}
 
 interface Props {
     // TODO: make this the full Supplier object from Core instead of breaking
@@ -44,22 +37,41 @@ const AllFilesView: React.FC<Props> = ({ supplierIds, user }) => {
     // });
 
     return (
-        <>
-            <div>
-                User: {user}
-                <br />
-                SupplierIds: {supplierIds.join(', ')}
-                <br />
-                Total files: {count}
-                <br />
-            </div>
-
-            <div className="filesTable">
-                {files.map((file) => (
-                    <FileRow key={file.id} file={file} />
-                ))}
-            </div>
-        </>
+        <Container>
+            <h3>
+            Files for {supplierIds.length === 0 ? 'all suppliers' : 'suppliers' + supplierIds.join(', ')}
+            Total files: {count}
+            </h3>
+            <Table
+                stickyHeader
+                striped
+                withColumnBorders
+                verticalSpacing="xl"
+                miw={700}
+            >
+                <Table.Thead>
+                    <Table.Tr>
+                        <Table.Th>Filename</Table.Th>
+                        <Table.Th>Supplier</Table.Th>
+                        <Table.Th>Source</Table.Th>
+                        <Table.Th>Found At</Table.Th>
+                    </Table.Tr>
+                </Table.Thead>
+            {files ? (
+                <Table.Tbody>
+                    {
+                        files.map(
+                            (file: FileData) => (
+                                <FileRow key={file.id} file={file} />
+                            )
+                        )
+                    }
+                </Table.Tbody>
+            ) : (
+                <p>No data available.</p>
+            )}
+            </Table>
+        </Container>
     );
 };
 

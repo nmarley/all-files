@@ -1,13 +1,6 @@
-import type React from 'react';
-// import { Table } from '@mantine/core';
-
-export interface FileData {
-    id: number;
-    filename: string;
-    supplierIds: string[];
-    providers: string[];
-    foundAt: string;
-}
+import React from 'react';
+import { Table } from '@mantine/core';
+import { FileData } from '../types';
 
 interface Props {
     file: FileData;
@@ -20,21 +13,16 @@ const FileRow: React.FC<Props> = ({ file }) => {
 
     return (
         <>
-            <div key={file.id}>
-                <span>{file.filename}</span>
-                <span>{supplierDisplay}</span>
-                <span>{providerDisplay}</span>
-                <span>{file.foundAt.toString()}</span>
-            </div>
-            <br />
+            <Table.Tr key={file.id}>
+                <Table.Td>{file.filename}</Table.Td>
+                <Table.Td>{supplierDisplay}</Table.Td>
+                <Table.Td>{providerDisplay}</Table.Td>
+                <Table.Td>{file.foundAt}</Table.Td>
+            </Table.Tr>
         </>
-        // <Table.Tr key={file.id}>
-        // 	<Table.Td>{file.filename}</Table.Td>
-        // 	<Table.Td>{supplierDisplay}</Table.Td>
-        // 	<Table.Td>{providerDisplay}</Table.Td>
-        // 	<Table.Td>{file.foundAt}</Table.Td>
-        // </Table.Tr>
     );
+    // TODO: Add a download button in the table ^^
+    // <Button style={{ float: 'left' }}>DL-ICON</Button>
 };
 
 export default FileRow;
