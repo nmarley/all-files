@@ -1,6 +1,6 @@
+import { Button, Container, ScrollArea, Table } from '@mantine/core';
 import React from 'react';
 import { useState } from 'react';
-import { Button, Container, Table, ScrollArea } from '@mantine/core';
 import { FileData } from '../types';
 import FileRow from './FileRow';
 
