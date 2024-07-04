@@ -1,39 +1,29 @@
 {
-  "files": {
-      "ignore": [
-          ".git",
-          "dist",
-          "node_modules",
-          "public"
-      ]
-  },
-  "formatter": {
-    "enabled": true,
-    "indentStyle": "space",
-    "indentWidth": 4,
-    "lineWidth": 80
-  },
-  "javascript": {
+    "files": {
+        "ignore": [
+            ".git",
+            "dist",
+            "node_modules",
+            "package.json",
+            "public",
+            "tsconfig*.json"
+        ]
+    },
     "formatter": {
-        "enabled": true,
-        "quoteStyle": "single"
-    }
-  },
-  "json": {
-    "formatter": {
-        "enabled": false
+        "indentStyle": "space",
+        "indentWidth": 4
+    },
+    "javascript": {
+        "formatter": {
+            "quoteStyle": "single"
+        }
     },
     "linter": {
-        "enabled": false
+        "rules": {
+            "style": {
+                "noNonNullAssertion": "off",
+                "useImportType": "off"
+            }
+        }
     }
-  },
-  "linter": {
-    "enabled": true,
-    "rules": {
-      "style": {
-        "noNonNullAssertion": "off",
-        "useImportType": "off"
-      }
-    }
-  }
 }
